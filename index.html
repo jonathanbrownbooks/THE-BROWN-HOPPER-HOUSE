@@ -2,27 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f3f3f0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#050505">
 
-<title>Jonathan Brown × Gwyn Hopper</title>
-
-<meta name="description"
-content="Jonathan Brown — literary work, creative collaborations, business and cultural projects.">
+<title>BROWN × HOPPER — Creative House</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
-  --paper:#f3f3f0;
-  --ink:#111111;
-  --soft:#777773;
-  --line:rgba(17,17,17,.15);
-  --white:#ffffff;
+  --white:#f7f7f4;
+  --black:#080808;
+  --grey:#aaa;
+  --line:rgba(255,255,255,.2);
 }
 
 *{
@@ -33,23 +27,14 @@ content="Jonathan Brown — literary work, creative collaborations, business and
 
 html{
   scroll-behavior:smooth;
-  background:var(--paper);
+  background:#080808;
 }
 
 body{
-  background:var(--paper);
-  color:var(--ink);
+  background:#080808;
+  color:var(--white);
   overflow-x:hidden;
-  width:100%;
-  font-family:"DM Sans",sans-serif;
-}
-
-/* NEVER ALLOW SIDEWAYS MOVEMENT */
-
-html,
-body{
-  max-width:100%;
-  overscroll-behavior-x:none;
+  font-family:Manrope,sans-serif;
 }
 
 a{
@@ -57,8 +42,14 @@ a{
   text-decoration:none;
 }
 
-button{
-  font:inherit;
+img,
+video{
+  max-width:100%;
+}
+
+.page{
+  width:100%;
+  overflow:hidden;
 }
 
 /* =========================
@@ -70,112 +61,31 @@ button{
   top:0;
   left:0;
   width:100%;
-  height:88px;
-  padding:0 24px;
+  height:80px;
+  padding:0 25px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   z-index:1000;
-  mix-blend-mode:multiply;
-}
-
-.brand{
-  font-family:"Cormorant Garamond",serif;
-  font-size:27px;
-  font-weight:500;
-  letter-spacing:.02em;
-}
-
-.menu-button{
-  border:0;
-  background:#111;
+  mix-blend-mode:difference;
   color:white;
-  border-radius:40px;
-  padding:14px 20px;
-  cursor:pointer;
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
 }
 
-/* =========================
-   MENU
-========================= */
+.mark{
+  font-family:"Cormorant Garamond",serif;
+  font-size:24px;
+  letter-spacing:.08em;
+}
+
+.mark span{
+  opacity:.6;
+  margin:0 6px;
+}
 
 .menu{
-  position:fixed;
-  inset:0;
-  background:#111;
-  color:#f3f3f0;
-  z-index:2000;
-  transform:translateY(-100%);
-  transition:transform .7s cubic-bezier(.76,0,.24,1);
-  overflow-y:auto;
-}
-
-.menu.open{
-  transform:translateY(0);
-}
-
-.menu-inner{
-  min-height:100%;
-  padding:30px 24px 60px;
-  display:flex;
-  flex-direction:column;
-}
-
-.menu-close{
-  align-self:flex-end;
-  background:#f3f3f0;
-  color:#111;
-  border:0;
-  border-radius:40px;
-  padding:13px 20px;
-  font-size:10px;
-  letter-spacing:.16em;
-  cursor:pointer;
-}
-
-.menu-nav{
-  margin-top:80px;
-  display:flex;
-  flex-direction:column;
-}
-
-.menu-nav a{
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(55px,15vw,110px);
-  line-height:.82;
-  border-bottom:1px solid rgba(255,255,255,.15);
-  padding:17px 0;
-  transition:.4s;
-}
-
-.menu-nav a:hover{
-  padding-left:12px;
-  color:#aaa;
-}
-
-.menu-footer{
-  margin-top:auto;
-  padding-top:70px;
   font-size:9px;
-  letter-spacing:.2em;
+  letter-spacing:.3em;
   text-transform:uppercase;
-  color:#888;
-}
-
-/* =========================
-   ROUTES
-========================= */
-
-.page{
-  display:none;
-  min-height:100vh;
-}
-
-.page.active{
-  display:block;
 }
 
 /* =========================
@@ -183,484 +93,501 @@ button{
 ========================= */
 
 .hero{
-  min-height:100vh;
-  padding:120px 24px 35px;
+  height:100svh;
+  min-height:680px;
+  position:relative;
   display:flex;
-  flex-direction:column;
-  justify-content:space-between;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
   overflow:hidden;
+  background:#050505;
 }
 
-.hero-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.72;
+  filter:contrast(1.08) brightness(.65);
+  transform:scale(1.06);
+  animation:slowZoom 18s ease-in-out infinite alternate;
 }
 
-.kicker{
-  font-size:9px;
-  letter-spacing:.24em;
-  text-transform:uppercase;
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.25),
+      rgba(0,0,0,.42),
+      rgba(0,0,0,.72)
+    );
 }
 
-.issue{
-  font-size:9px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--soft);
+@keyframes slowZoom{
+  from{transform:scale(1.06);}
+  to{transform:scale(1.14);}
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding:20px;
+}
+
+.monogram{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(50px,17vw,170px);
+  font-weight:300;
+  line-height:.65;
+  letter-spacing:-.07em;
+  text-shadow:0 0 35px rgba(255,255,255,.18);
+}
+
+.monogram .x{
+  font-family:Manrope,sans-serif;
+  font-size:.17em;
+  letter-spacing:.1em;
+  vertical-align:middle;
+  margin:0 12px;
 }
 
 .hero-title{
-  position:relative;
-  margin-top:auto;
-  margin-bottom:auto;
+  margin-top:40px;
   font-family:"Cormorant Garamond",serif;
+  font-size:clamp(38px,11vw,125px);
   font-weight:300;
-  font-size:clamp(75px,22vw,230px);
-  line-height:.70;
-  letter-spacing:-.055em;
-  word-break:normal;
+  letter-spacing:.02em;
+  line-height:.8;
 }
 
-.hero-title .ghost{
+.hero-sub{
+  margin-top:35px;
+  font-size:8px;
+  letter-spacing:.45em;
+  text-transform:uppercase;
+}
+
+.scroll{
   position:absolute;
-  left:3%;
-  top:20%;
-  z-index:-1;
-  color:transparent;
-  -webkit-text-stroke:1px rgba(17,17,17,.10);
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:3;
+  font-size:8px;
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  animation:pulse 2.5s ease-in-out infinite;
 }
 
-.hero-title .main{
+@keyframes pulse{
+  0%,100%{opacity:.4}
+  50%{opacity:1}
+}
+
+/* =========================
+   FULLSCREEN SECTIONS
+========================= */
+
+.scene{
   position:relative;
-  display:block;
-}
-
-.hero-title .brown{
-  margin-left:13%;
-}
-
-.hero-bottom{
+  min-height:100svh;
   display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:20px;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  overflow:hidden;
 }
 
-.hero-subtitle{
-  max-width:260px;
+.scene-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.55;
+  filter:grayscale(20%) contrast(1.12) brightness(.55);
+  transform:scale(1.04);
+}
+
+.scene:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 5%,
+      rgba(0,0,0,.25) 45%,
+      rgba(0,0,0,.72) 100%
+    );
+}
+
+.scene-content{
+  position:relative;
+  z-index:2;
+  padding:30px;
+  max-width:1100px;
+}
+
+.eyebrow{
+  font-size:8px;
+  letter-spacing:.5em;
+  text-transform:uppercase;
+  margin-bottom:35px;
+}
+
+.big{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(75px,20vw,250px);
+  line-height:.62;
+  letter-spacing:-.07em;
+  font-weight:300;
+}
+
+.big em{
+  font-style:normal;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.8);
+}
+
+.description{
+  max-width:470px;
+  margin:55px auto 0;
   font-family:"Cormorant Garamond",serif;
   font-size:25px;
   line-height:1;
 }
 
-.enter{
-  border:1px solid var(--ink);
-  border-radius:50px;
-  padding:14px 20px;
-  font-size:9px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  white-space:nowrap;
-}
-
 /* =========================
-   COLLABORATION
+   GLASS / STAR SECTION
 ========================= */
 
-.collab{
-  min-height:100vh;
-  padding:130px 24px 70px;
+.star{
+  min-height:100svh;
+  background:
+    radial-gradient(circle at 50% 45%,#252525 0%,#090909 48%,#030303 100%);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
 }
 
-.small-label{
-  font-size:9px;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-  color:var(--soft);
+.star:before{
+  content:"";
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  box-shadow:
+    10vw 15vh white,
+    25vw 72vh white,
+    38vw 21vh white,
+    50vw 80vh white,
+    63vw 13vh white,
+    78vw 61vh white,
+    90vw 29vh white,
+    16vw 44vh white,
+    72vw 39vh white,
+    45vw 48vh white,
+    5vw 88vh white,
+    95vw 84vh white;
+  opacity:.7;
+  animation:stars 8s linear infinite;
 }
 
-.collab-title{
-  margin-top:70px;
+@keyframes stars{
+  from{transform:translateY(0)}
+  to{transform:translateY(-40px)}
+}
+
+.star-content{
+  position:relative;
+  z-index:2;
+}
+
+.star-title{
   font-family:"Cormorant Garamond",serif;
-  font-size:clamp(65px,19vw,190px);
-  line-height:.73;
-  letter-spacing:-.055em;
+  font-size:clamp(90px,24vw,290px);
   font-weight:300;
+  line-height:.6;
+  letter-spacing:-.08em;
 }
 
-.collab-title span{
+.star-title span{
   display:block;
 }
 
-.collab-title .x{
-  font-family:"DM Sans",sans-serif;
-  font-size:.15em;
-  letter-spacing:0;
-  margin:20px 0;
+.star-title .outline{
+  color:transparent;
+  -webkit-text-stroke:1px white;
 }
 
-.collab-text{
-  margin-top:90px;
-  max-width:480px;
-  margin-left:auto;
-  font-family:"Cormorant Garamond",serif;
-  font-size:27px;
-  line-height:1.05;
-}
-
-.collab-actions{
-  margin-top:45px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.pill{
-  border:1px solid var(--ink);
-  border-radius:50px;
-  padding:13px 18px;
+.star-copy{
+  margin:65px auto 0;
+  max-width:430px;
   font-size:9px;
-  letter-spacing:.15em;
+  line-height:1.8;
+  letter-spacing:.12em;
   text-transform:uppercase;
-  transition:.3s;
-}
-
-.pill:hover{
-  background:#111;
-  color:white;
 }
 
 /* =========================
-   PROFILE
+   PEOPLE
 ========================= */
 
-.profile{
-  min-height:100vh;
-  padding:130px 24px 70px;
+.people{
+  background:#eee;
+  color:#080808;
+  min-height:100svh;
+  padding:100px 20px;
 }
 
-.profile-number{
-  font-size:10px;
-  letter-spacing:.25em;
-  color:var(--soft);
+.people-head{
+  text-align:center;
+  margin-bottom:70px;
 }
 
-.profile-name{
-  margin-top:45px;
+.people-head h2{
   font-family:"Cormorant Garamond",serif;
-  font-size:clamp(80px,21vw,220px);
-  font-weight:300;
-  line-height:.68;
-  letter-spacing:-.06em;
-}
-
-.profile-description{
-  margin-top:100px;
-  max-width:650px;
-  margin-left:auto;
-  font-family:"Cormorant Garamond",serif;
-  font-size:31px;
-  line-height:1;
-}
-
-.profile-meta{
-  margin-top:55px;
-  padding-top:20px;
-  border-top:1px solid var(--line);
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-}
-
-.meta-label{
-  font-size:8px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--soft);
-}
-
-.meta-value{
-  margin-top:8px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:23px;
-}
-
-/* =========================
-   BUSINESS
-========================= */
-
-.business{
-  min-height:100vh;
-  padding:130px 24px 80px;
-}
-
-.business-title{
-  margin-top:60px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(80px,21vw,220px);
+  font-size:clamp(70px,19vw,220px);
   font-weight:300;
   line-height:.65;
-  letter-spacing:-.06em;
-}
-
-.business-intro{
-  max-width:600px;
-  margin-top:100px;
-  margin-left:auto;
-  font-family:"Cormorant Garamond",serif;
-  font-size:30px;
-  line-height:1;
-}
-
-.business-grid{
-  margin-top:90px;
-  border-top:1px solid var(--line);
-}
-
-.business-card{
-  padding:28px 0;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-}
-
-.business-card h3{
-  font-family:"Cormorant Garamond",serif;
-  font-size:38px;
-  font-weight:400;
-}
-
-.business-card p{
-  max-width:260px;
-  font-size:10px;
-  line-height:1.5;
-  color:var(--soft);
-}
-
-/* =========================
-   PRADA
-========================= */
-
-.prada{
-  min-height:100vh;
-  padding:130px 24px 80px;
-}
-
-.prada-title{
-  margin-top:60px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(100px,28vw,300px);
-  font-weight:300;
-  line-height:.55;
   letter-spacing:-.07em;
 }
 
-.prada-copy{
-  margin-top:100px;
-  max-width:600px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:29px;
-  line-height:1;
+.people-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  max-width:1200px;
+  margin:auto;
 }
 
-.external-links{
-  margin-top:70px;
-  border-top:1px solid var(--line);
+.model{
+  height:65vh;
+  min-height:430px;
+  position:relative;
+  overflow:hidden;
+  background:#bbb;
 }
 
-.external-link{
+.model img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(100%);
+  transition:transform 1.2s cubic-bezier(.16,1,.3,1);
+}
+
+.model:hover img{
+  transform:scale(1.06);
+}
+
+.model-info{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:18px;
   display:flex;
   justify-content:space-between;
-  padding:25px 0;
-  border-bottom:1px solid var(--line);
+  align-items:end;
+  color:white;
+  text-shadow:0 1px 15px rgba(0,0,0,.6);
+}
+
+.model-name{
   font-family:"Cormorant Garamond",serif;
-  font-size:30px;
+  font-size:34px;
 }
 
-.external-link span:last-child{
-  font-family:"DM Sans",sans-serif;
-  font-size:9px;
-  letter-spacing:.18em;
-}
-
-/* =========================
-   JOURNAL
-========================= */
-
-.journal{
-  min-height:100vh;
-  padding:130px 24px 80px;
-}
-
-.journal-title{
-  margin-top:60px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(90px,25vw,270px);
-  line-height:.58;
-  letter-spacing:-.07em;
-  font-weight:300;
-}
-
-.article{
-  margin-top:100px;
-  padding-top:25px;
-  border-top:1px solid var(--line);
-}
-
-.article-index{
-  font-size:9px;
+.model-type{
+  font-size:7px;
   letter-spacing:.2em;
-  color:var(--soft);
+  text-transform:uppercase;
 }
 
-.article h2{
-  margin-top:18px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:45px;
-  font-weight:400;
-  line-height:.9;
+/* =========================
+   FASHION
+========================= */
+
+.fashion{
+  min-height:100svh;
+  background:#111;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.article p{
-  margin-top:20px;
-  max-width:500px;
+.fashion-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.45;
+  filter:brightness(.5) contrast(1.15);
+}
+
+.fashion-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:30px;
+}
+
+.fashion-word{
   font-family:"Cormorant Garamond",serif;
-  font-size:23px;
-  line-height:1;
+  font-size:clamp(80px,24vw,280px);
+  font-weight:300;
+  letter-spacing:-.08em;
+  line-height:.55;
+}
+
+.fashion-line{
+  margin-top:50px;
+  width:100%;
+  height:1px;
+  background:rgba(255,255,255,.5);
+}
+
+.fashion-small{
+  margin-top:22px;
+  font-size:8px;
+  letter-spacing:.35em;
+  text-transform:uppercase;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+  min-height:100svh;
+  background:#f4f4f1;
+  color:#080808;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:30px;
+}
+
+.final-mark{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(80px,24vw,260px);
+  line-height:.6;
+  letter-spacing:-.08em;
+}
+
+.final-title{
+  margin-top:70px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(32px,9vw,90px);
+  font-weight:300;
+}
+
+.final-note{
+  margin-top:30px;
+  max-width:520px;
+  font-size:8px;
+  letter-spacing:.25em;
+  line-height:1.8;
+  text-transform:uppercase;
+}
+
+.prada-link{
+  margin-top:55px;
+  padding:14px 25px;
+  border:1px solid #111;
+  border-radius:50px;
+  font-size:8px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
 }
 
 /* =========================
    FOOTER
 ========================= */
 
-.footer{
-  border-top:1px solid var(--line);
-  padding:25px 24px;
+footer{
+  background:#f4f4f1;
+  color:#111;
+  padding:30px 20px;
   display:flex;
   justify-content:space-between;
-  font-size:8px;
-  letter-spacing:.18em;
+  font-size:7px;
+  letter-spacing:.25em;
   text-transform:uppercase;
-  color:var(--soft);
+  border-top:1px solid rgba(0,0,0,.15);
 }
 
 /* =========================
    MOBILE
 ========================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
   .header{
-    height:75px;
     padding:0 18px;
   }
 
-  .brand{
-    font-size:24px;
-  }
-
-  .menu-button{
-    padding:12px 16px;
-  }
-
   .hero{
-    padding:100px 18px 25px;
+    min-height:100svh;
   }
 
-  .hero-title{
-    font-size:24vw;
+  .hero-video{
+    opacity:.62;
   }
 
-  .hero-title .brown{
-    margin-left:7%;
-  }
-
-  .hero-subtitle{
-    font-size:22px;
-    max-width:210px;
-  }
-
-  .enter{
-    padding:12px 15px;
-  }
-
-  .collab,
-  .profile,
-  .business,
-  .prada,
-  .journal{
-    padding-left:18px;
-    padding-right:18px;
-  }
-
-  .collab-title{
-    font-size:24vw;
-  }
-
-  .collab-text,
-  .business-intro,
-  .prada-copy{
-    font-size:25px;
-  }
-
-  .profile-name{
-    font-size:24vw;
-  }
-
-  .profile-description{
-    font-size:26px;
-  }
-
-  .business-title{
-    font-size:25vw;
-  }
-
-  .prada-title{
-    font-size:31vw;
-  }
-
-  .journal-title{
-    font-size:28vw;
-  }
-
-  .business-card{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .business-card h3{
-    font-size:32px;
-  }
-
-  .profile-meta{
+  .people-grid{
     grid-template-columns:1fr;
   }
 
-  .footer{
-    flex-direction:column;
-    gap:12px;
+  .model{
+    height:70vh;
   }
 
+  .big{
+    font-size:23vw;
+  }
+
+  .description{
+    font-size:22px;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+  }
 }
 
 /* =========================
-   REDUCE MOTION
+   REDUCED MOTION
 ========================= */
 
 @media(prefers-reduced-motion:reduce){
 
   *,
-  *::before,
-  *::after{
+  *:before,
+  *:after{
     animation:none!important;
     transition:none!important;
   }
 
 }
-
 </style>
 </head>
 
@@ -668,118 +595,57 @@ button{
 
 <header class="header">
 
-  <a href="#home" class="brand">
-    JB
+  <a href="#top" class="mark">
+    JB <span>×</span> GH
   </a>
 
-  <button class="menu-button" onclick="openMenu()">
-    Menu
-  </button>
+  <a href="#contact" class="menu">
+    Explore
+  </a>
 
 </header>
 
-<!-- MENU -->
 
-<div class="menu" id="menu">
+<main class="page" id="top">
 
-  <div class="menu-inner">
+<!-- =========================
+     OPENING
+========================= -->
 
-    <button class="menu-close" onclick="closeMenu()">
-      Close
-    </button>
+<section class="hero">
 
-    <nav class="menu-nav">
+  <!-- Replace this file with your own licensed fashion video -->
+  <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="fashion-hero.mp4" type="video/mp4">
+  </video>
 
-      <a href="#home" onclick="closeMenu()">Home</a>
+  <div class="hero-overlay"></div>
 
-      <a href="#collaboration" onclick="closeMenu()">
-        Collaboration
-      </a>
+  <div class="hero-content">
 
-      <a href="#jonathan" onclick="closeMenu()">
-        Jonathan
-      </a>
+    <div class="monogram">
+      JB <span class="x">×</span> GH
+    </div>
 
-      <a href="#gwyn" onclick="closeMenu()">
-        Gwyn
-      </a>
+    <div class="hero-title">
+      BROWN — HOPPER
+    </div>
 
-      <a href="#business" onclick="closeMenu()">
-        Business
-      </a>
-
-      <a href="#prada" onclick="closeMenu()">
-        Prada
-      </a>
-
-      <a href="#journal" onclick="closeMenu()">
-        Journal
-      </a>
-
-    </nav>
-
-    <div class="menu-footer">
-      Jonathan Brown × Gwyn Hopper
+    <div class="hero-sub">
+      A Contemporary Creative House
     </div>
 
   </div>
 
-</div>
-
-
-<!-- =========================
-     HOME
-========================= -->
-
-<main>
-
-<section class="page active" id="home">
-
-  <div class="hero">
-
-    <div class="hero-top">
-
-      <div class="kicker">
-        Literary · Creative · Business
-      </div>
-
-      <div class="issue">
-        Digital Archive / 01
-      </div>
-
-    </div>
-
-    <div class="hero-title">
-
-      <span class="ghost">
-        Jonathan
-      </span>
-
-      <span class="main">
-        Jonathan
-      </span>
-
-      <span class="main brown">
-        Brown
-      </span>
-
-    </div>
-
-    <div class="hero-bottom">
-
-      <div class="hero-subtitle">
-        Literature,
-        culture and
-        contemporary
-        creative work.
-      </div>
-
-      <a class="enter" href="#collaboration">
-        Enter
-      </a>
-
-    </div>
-
+  <div class="scroll">
+    Scroll to enter ↓
   </div>
 
 </section>
@@ -789,57 +655,35 @@ button{
      COLLABORATION
 ========================= -->
 
-<section class="page" id="collaboration">
+<section class="scene">
 
-  <div class="collab">
+  <video
+    class="scene-video"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="fashion-01.mp4" type="video/mp4">
+  </video>
 
-    <div class="small-label">
-      01 — Creative Collaboration
+  <div class="scene-content">
+
+    <div class="eyebrow">
+      01 — Collaboration
     </div>
 
-    <div class="collab-title">
-
-      <span>
-        Jonathan
-      </span>
-
-      <span class="x">
-        ×
-      </span>
-
-      <span>
-        Gwyn
-      </span>
-
-      <span>
-        Hopper
-      </span>
-
+    <div class="big">
+      Brown
+      <br>
+      <em>× Hopper</em>
     </div>
 
-    <div class="collab-text">
-
-      A contemporary collaboration
-      connecting literature, fashion,
-      visual language and cultural
-      thinking.
-
-      <div class="collab-actions">
-
-        <a class="pill" href="#jonathan">
-          Jonathan Brown
-        </a>
-
-        <a class="pill" href="#gwyn">
-          Gwyn Hopper
-        </a>
-
-        <a class="pill" href="#business">
-          Business
-        </a>
-
-      </div>
-
+    <div class="description">
+      Literature, fashion, culture and
+      contemporary creative direction
+      brought together through a single
+      visual language.
     </div>
 
   </div>
@@ -851,51 +695,35 @@ button{
      JONATHAN
 ========================= -->
 
-<section class="page" id="jonathan">
+<section class="scene">
 
-  <div class="profile">
+  <video
+    class="scene-video"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="fashion-02.mp4" type="video/mp4">
+  </video>
 
-    <div class="profile-number">
-      02 — PROFILE
+  <div class="scene-content">
+
+    <div class="eyebrow">
+      02 — Literature
     </div>
 
-    <h1 class="profile-name">
-      Jonathan<br>
-      Brown
-    </h1>
-
-    <div class="profile-description">
-
-      Jonathan Brown is a writer and
-      author whose work explores
-      consciousness, memory,
-      psychology, technology and
-      human thought.
-
+    <div class="big">
+      Jonathan
+      <br>
+      <em>Brown</em>
     </div>
 
-    <div class="profile-meta">
-
-      <div>
-        <div class="meta-label">
-          Discipline
-        </div>
-
-        <div class="meta-value">
-          Writing · Literature
-        </div>
-      </div>
-
-      <div>
-        <div class="meta-label">
-          Archive
-        </div>
-
-        <div class="meta-value">
-          Books · Ideas · Research
-        </div>
-      </div>
-
+    <div class="description">
+      Writer and author exploring
+      consciousness, psychology,
+      technology, memory and human
+      thought.
     </div>
 
   </div>
@@ -907,52 +735,219 @@ button{
      GWYN
 ========================= -->
 
-<section class="page" id="gwyn">
+<section class="scene">
 
-  <div class="profile">
+  <video
+    class="scene-video"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="fashion-03.mp4" type="video/mp4">
+  </video>
 
-    <div class="profile-number">
-      03 — PROFILE
+  <div class="scene-content">
+
+    <div class="eyebrow">
+      03 — Fashion
     </div>
 
-    <h1 class="profile-name">
-      Gwyn<br>
-      Hopper
-    </h1>
-
-    <div class="profile-description">
-
-      Gwyn Hopper is presented here as
-      a British-American model and
-      fashion designer whose creative
-      perspective connects fashion,
-      identity and contemporary
-      visual culture.
-
+    <div class="big">
+      Gwyn
+      <br>
+      <em>Hopper</em>
     </div>
 
-    <div class="profile-meta">
+    <div class="description">
+      British-American model and
+      fashion designer, connecting
+      fashion, identity and
+      contemporary visual culture.
+    </div>
 
-      <div>
-        <div class="meta-label">
-          Field
+  </div>
+
+</section>
+
+
+<!-- =========================
+     RISING STAR
+========================= -->
+
+<section class="star">
+
+  <div class="star-content">
+
+    <div class="eyebrow">
+      04 — The Rise
+    </div>
+
+    <div class="star-title">
+      A
+      <span class="outline">
+        NEW
+      </span>
+      ERA
+    </div>
+
+    <div class="star-copy">
+      A creative presence built through
+      literature, fashion, culture and
+      contemporary ideas.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     MODELS
+========================= -->
+
+<section class="people">
+
+  <div class="people-head">
+
+    <div class="eyebrow">
+      05 — Models / Fashion
+    </div>
+
+    <h2>
+      Faces
+      <br>
+      of
+      <br>
+      culture
+    </h2>
+
+  </div>
+
+  <div class="people-grid">
+
+    <article class="model">
+
+      <img
+        src="model-01.jpg"
+        alt="Fashion model"
+      >
+
+      <div class="model-info">
+
+        <div class="model-name">
+          Editorial I
         </div>
 
-        <div class="meta-value">
-          Fashion · Design · Modeling
+        <div class="model-type">
+          Fashion
         </div>
+
       </div>
 
-      <div>
-        <div class="meta-label">
-          Creative Direction
+    </article>
+
+
+    <article class="model">
+
+      <img
+        src="model-02.jpg"
+        alt="Fashion model"
+      >
+
+      <div class="model-info">
+
+        <div class="model-name">
+          Editorial II
         </div>
 
-        <div class="meta-value">
-          Style · Culture · Image
+        <div class="model-type">
+          Fashion
         </div>
+
       </div>
 
+    </article>
+
+
+    <article class="model">
+
+      <img
+        src="model-03.jpg"
+        alt="Fashion model"
+      >
+
+      <div class="model-info">
+
+        <div class="model-name">
+          Editorial III
+        </div>
+
+        <div class="model-type">
+          Fashion
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article class="model">
+
+      <img
+        src="model-04.jpg"
+        alt="Fashion model"
+      >
+
+      <div class="model-info">
+
+        <div class="model-name">
+          Editorial IV
+        </div>
+
+        <div class="model-type">
+          Fashion
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FASHION
+========================= -->
+
+<section class="fashion">
+
+  <video
+    class="fashion-video"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="fashion-final.mp4" type="video/mp4">
+  </video>
+
+  <div class="fashion-content">
+
+    <div class="eyebrow">
+      06 — Fashion Culture
+    </div>
+
+    <div class="fashion-word">
+      FORM
+    </div>
+
+    <div class="fashion-line"></div>
+
+    <div class="fashion-small">
+      Clothing · Identity · Architecture · Movement
     </div>
 
   </div>
@@ -964,87 +959,24 @@ button{
      BUSINESS
 ========================= -->
 
-<section class="page" id="business">
+<section class="scene">
 
-  <div class="business">
+  <div class="scene-content">
 
-    <div class="small-label">
-      04 — Business & Creative Direction
+    <div class="eyebrow">
+      07 — Creative Business
     </div>
 
-    <h1 class="business-title">
-      The<br>
-      Business.
-    </h1>
-
-    <div class="business-intro">
-
-      A creative platform connecting
-      literary work, fashion,
-      cultural projects and
-      contemporary digital presence.
-
+    <div class="big">
+      The
+      <br>
+      <em>House</em>
     </div>
 
-    <div class="business-grid">
-
-      <div class="business-card">
-
-        <h3>
-          Publishing
-        </h3>
-
-        <p>
-          Books, literary projects,
-          editorial development and
-          intellectual properties.
-        </p>
-
-      </div>
-
-      <div class="business-card">
-
-        <h3>
-          Fashion
-        </h3>
-
-        <p>
-          Creative direction,
-          fashion concepts and
-          visual identity.
-        </p>
-
-      </div>
-
-      <div class="business-card">
-
-        <h3>
-          Culture
-        </h3>
-
-        <p>
-          Cross-disciplinary projects
-          connecting literature,
-          design and contemporary
-          culture.
-        </p>
-
-      </div>
-
-      <div class="business-card">
-
-        <h3>
-          Digital
-        </h3>
-
-        <p>
-          Digital archives,
-          editorial experiences
-          and international presence.
-        </p>
-
-      </div>
-
+    <div class="description">
+      Publishing, fashion, editorial,
+      cultural projects and digital
+      creative direction.
     </div>
 
   </div>
@@ -1053,274 +985,94 @@ button{
 
 
 <!-- =========================
-     PRADA
+     FINAL
 ========================= -->
 
-<section class="page" id="prada">
+<section class="final">
 
-  <div class="prada">
-
-    <div class="small-label">
-      05 — Brand Reference
-    </div>
-
-    <h1 class="prada-title">
-      PRADA
-    </h1>
-
-    <div class="prada-copy">
-
-      A reference point for
-      contemporary luxury,
-      conceptual fashion and
-      cultural experimentation.
-
-      <br><br>
-
-      This page connects to Prada's
-      official digital properties
-      without representing this
-      website as an official Prada
-      website.
-
-    </div>
-
-    <div class="external-links">
-
-      <a
-        class="external-link"
-        href="https://www.prada.com/"
-        target="_blank"
-        rel="noopener"
-      >
-        <span>Prada Official</span>
-        <span>↗</span>
-      </a>
-
-      <a
-        class="external-link"
-        href="https://www.pradagroup.com/"
-        target="_blank"
-        rel="noopener"
-      >
-        <span>Prada Group</span>
-        <span>↗</span>
-      </a>
-
-      <a
-        class="external-link"
-        href="https://www.prada-beauty.com/"
-        target="_blank"
-        rel="noopener"
-      >
-        <span>Prada Beauty</span>
-        <span>↗</span>
-      </a>
-
-      <a
-        class="external-link"
-        href="https://www.instagram.com/prada/"
-        target="_blank"
-        rel="noopener"
-      >
-        <span>Prada Instagram</span>
-        <span>↗</span>
-      </a>
-
-    </div>
-
+  <div class="final-mark">
+    JB × GH
   </div>
+
+  <div class="final-title">
+    BROWN × HOPPER
+  </div>
+
+  <div class="final-note">
+    An independent creative presentation.
+    Fashion references belong to their respective
+    owners and brands. This website is not an
+    official Prada website or Prada production.
+  </div>
+
+  <a
+    class="prada-link"
+    href="https://www.prada.com/"
+    target="_blank"
+    rel="noopener"
+  >
+    Explore Prada ↗
+  </a>
 
 </section>
 
 
-<!-- =========================
-     JOURNAL
-========================= -->
-
-<section class="page" id="journal">
-
-  <div class="journal">
-
-    <div class="small-label">
-      06 — Journal
-    </div>
-
-    <h1 class="journal-title">
-      Notes.
-    </h1>
-
-    <article class="article">
-
-      <div class="article-index">
-        01 / LITERATURE
-      </div>
-
-      <h2>
-        The Architecture
-        of Thought
-      </h2>
-
-      <p>
-        Notes on consciousness,
-        memory and the strange
-        structures that shape
-        human thought.
-      </p>
-
-    </article>
-
-    <article class="article">
-
-      <div class="article-index">
-        02 / FASHION × CULTURE
-      </div>
-
-      <h2>
-        When Fashion
-        Becomes Language
-      </h2>
-
-      <p>
-        An exploration of how
-        design communicates identity,
-        culture and contemporary
-        ideas.
-      </p>
-
-    </article>
-
-    <article class="article">
-
-      <div class="article-index">
-        03 / COLLABORATION
-      </div>
-
-      <h2>
-        Jonathan Brown
-        × Gwyn Hopper
-      </h2>
-
-      <p>
-        A creative dialogue between
-        literature, fashion and
-        visual culture.
-      </p>
-
-    </article>
-
-  </div>
-
-</section>
-
-</main>
-
-
-<footer class="footer">
+<footer>
 
   <span>
-    Jonathan Brown
+    Brown × Hopper
   </span>
 
   <span>
-    © 2026 — Creative Archive
+    Creative House · 2026
   </span>
 
 </footer>
 
+</main>
 
 <script>
 
-/* =========================
-   MENU
-========================= */
+/* subtle vertical parallax */
 
-function openMenu(){
-  document.getElementById("menu")
-    .classList.add("open");
-
-  document.body.style.overflow="hidden";
-}
-
-function closeMenu(){
-  document.getElementById("menu")
-    .classList.remove("open");
-
-  document.body.style.overflow="";
-}
-
-
-/* =========================
-   PAGE ROUTING
-========================= */
-
-function showPage(){
-
-  let route =
-    location.hash.substring(1);
-
-  if(!route){
-    route="home";
-  }
-
-  document
-    .querySelectorAll(".page")
-    .forEach(page=>{
-      page.classList.remove("active");
-    });
-
-  const target =
-    document.getElementById(route);
-
-  if(target){
-    target.classList.add("active");
-  }else{
-    document
-      .getElementById("home")
-      .classList.add("active");
-  }
-
-  window.scrollTo({
-    top:0,
-    behavior:"instant"
-  });
-
-}
-
-window.addEventListener(
-  "hashchange",
-  showPage
+const videos =
+document.querySelectorAll(
+  ".hero-video,.scene-video,.fashion-video"
 );
 
-showPage();
+window.addEventListener(
+  "scroll",
+  () => {
 
+    const scrollY =
+      window.scrollY;
 
-/* =========================
-   PREVENT HORIZONTAL
-   TOUCH GESTURES
-========================= */
+    videos.forEach(
+      (video,index) => {
 
-document.addEventListener(
-  "touchmove",
-  function(e){
+        const rect =
+          video.parentElement.getBoundingClientRect();
 
-    if(
-      Math.abs(
-        e.touches[0].clientX -
-        (window.innerWidth/2)
-      ) >
-      Math.abs(
-        e.touches[0].clientY -
-        (window.innerHeight/2)
-      )
-    ){
+        if(
+          rect.bottom > 0 &&
+          rect.top < window.innerHeight
+        ){
 
-      e.preventDefault();
+          const offset =
+            (window.innerHeight/2 -
+            (rect.top + rect.height/2))
+            * .035;
 
-    }
+          video.style.transform =
+            `scale(1.08) translateY(${offset}px)`;
+
+        }
+
+      }
+    );
 
   },
-  {passive:false}
+  {passive:true}
 );
 
 </script>
