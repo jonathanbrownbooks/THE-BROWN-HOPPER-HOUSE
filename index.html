@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f3f3f0">
+
+<title>Jonathan Brown × Gwyn Hopper</title>
+
+<meta name="description"
+content="Jonathan Brown — literary work, creative collaborations, business and cultural projects.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --paper:#f3f3f0;
+  --ink:#111111;
+  --soft:#777773;
+  --line:rgba(17,17,17,.15);
+  --white:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  background:var(--paper);
+}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  overflow-x:hidden;
+  width:100%;
+  font-family:"DM Sans",sans-serif;
+}
+
+/* NEVER ALLOW SIDEWAYS MOVEMENT */
+
+html,
+body{
+  max-width:100%;
+  overscroll-behavior-x:none;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:88px;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  z-index:1000;
+  mix-blend-mode:multiply;
+}
+
+.brand{
+  font-family:"Cormorant Garamond",serif;
+  font-size:27px;
+  font-weight:500;
+  letter-spacing:.02em;
+}
+
+.menu-button{
+  border:0;
+  background:#111;
+  color:white;
+  border-radius:40px;
+  padding:14px 20px;
+  cursor:pointer;
+  font-size:10px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.menu{
+  position:fixed;
+  inset:0;
+  background:#111;
+  color:#f3f3f0;
+  z-index:2000;
+  transform:translateY(-100%);
+  transition:transform .7s cubic-bezier(.76,0,.24,1);
+  overflow-y:auto;
+}
+
+.menu.open{
+  transform:translateY(0);
+}
+
+.menu-inner{
+  min-height:100%;
+  padding:30px 24px 60px;
+  display:flex;
+  flex-direction:column;
+}
+
+.menu-close{
+  align-self:flex-end;
+  background:#f3f3f0;
+  color:#111;
+  border:0;
+  border-radius:40px;
+  padding:13px 20px;
+  font-size:10px;
+  letter-spacing:.16em;
+  cursor:pointer;
+}
+
+.menu-nav{
+  margin-top:80px;
+  display:flex;
+  flex-direction:column;
+}
+
+.menu-nav a{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(55px,15vw,110px);
+  line-height:.82;
+  border-bottom:1px solid rgba(255,255,255,.15);
+  padding:17px 0;
+  transition:.4s;
+}
+
+.menu-nav a:hover{
+  padding-left:12px;
+  color:#aaa;
+}
+
+.menu-footer{
+  margin-top:auto;
+  padding-top:70px;
+  font-size:9px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#888;
+}
+
+/* =========================
+   ROUTES
+========================= */
+
+.page{
+  display:none;
+  min-height:100vh;
+}
+
+.page.active{
+  display:block;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  padding:120px 24px 35px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  overflow:hidden;
+}
+
+.hero-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+
+.kicker{
+  font-size:9px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+
+.issue{
+  font-size:9px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--soft);
+}
+
+.hero-title{
+  position:relative;
+  margin-top:auto;
+  margin-bottom:auto;
+  font-family:"Cormorant Garamond",serif;
+  font-weight:300;
+  font-size:clamp(75px,22vw,230px);
+  line-height:.70;
+  letter-spacing:-.055em;
+  word-break:normal;
+}
+
+.hero-title .ghost{
+  position:absolute;
+  left:3%;
+  top:20%;
+  z-index:-1;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(17,17,17,.10);
+}
+
+.hero-title .main{
+  position:relative;
+  display:block;
+}
+
+.hero-title .brown{
+  margin-left:13%;
+}
+
+.hero-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:20px;
+}
+
+.hero-subtitle{
+  max-width:260px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:25px;
+  line-height:1;
+}
+
+.enter{
+  border:1px solid var(--ink);
+  border-radius:50px;
+  padding:14px 20px;
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+/* =========================
+   COLLABORATION
+========================= */
+
+.collab{
+  min-height:100vh;
+  padding:130px 24px 70px;
+}
+
+.small-label{
+  font-size:9px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--soft);
+}
+
+.collab-title{
+  margin-top:70px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(65px,19vw,190px);
+  line-height:.73;
+  letter-spacing:-.055em;
+  font-weight:300;
+}
+
+.collab-title span{
+  display:block;
+}
+
+.collab-title .x{
+  font-family:"DM Sans",sans-serif;
+  font-size:.15em;
+  letter-spacing:0;
+  margin:20px 0;
+}
+
+.collab-text{
+  margin-top:90px;
+  max-width:480px;
+  margin-left:auto;
+  font-family:"Cormorant Garamond",serif;
+  font-size:27px;
+  line-height:1.05;
+}
+
+.collab-actions{
+  margin-top:45px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.pill{
+  border:1px solid var(--ink);
+  border-radius:50px;
+  padding:13px 18px;
+  font-size:9px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.pill:hover{
+  background:#111;
+  color:white;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+  min-height:100vh;
+  padding:130px 24px 70px;
+}
+
+.profile-number{
+  font-size:10px;
+  letter-spacing:.25em;
+  color:var(--soft);
+}
+
+.profile-name{
+  margin-top:45px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(80px,21vw,220px);
+  font-weight:300;
+  line-height:.68;
+  letter-spacing:-.06em;
+}
+
+.profile-description{
+  margin-top:100px;
+  max-width:650px;
+  margin-left:auto;
+  font-family:"Cormorant Garamond",serif;
+  font-size:31px;
+  line-height:1;
+}
+
+.profile-meta{
+  margin-top:55px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.meta-label{
+  font-size:8px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--soft);
+}
+
+.meta-value{
+  margin-top:8px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:23px;
+}
+
+/* =========================
+   BUSINESS
+========================= */
+
+.business{
+  min-height:100vh;
+  padding:130px 24px 80px;
+}
+
+.business-title{
+  margin-top:60px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(80px,21vw,220px);
+  font-weight:300;
+  line-height:.65;
+  letter-spacing:-.06em;
+}
+
+.business-intro{
+  max-width:600px;
+  margin-top:100px;
+  margin-left:auto;
+  font-family:"Cormorant Garamond",serif;
+  font-size:30px;
+  line-height:1;
+}
+
+.business-grid{
+  margin-top:90px;
+  border-top:1px solid var(--line);
+}
+
+.business-card{
+  padding:28px 0;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.business-card h3{
+  font-family:"Cormorant Garamond",serif;
+  font-size:38px;
+  font-weight:400;
+}
+
+.business-card p{
+  max-width:260px;
+  font-size:10px;
+  line-height:1.5;
+  color:var(--soft);
+}
+
+/* =========================
+   PRADA
+========================= */
+
+.prada{
+  min-height:100vh;
+  padding:130px 24px 80px;
+}
+
+.prada-title{
+  margin-top:60px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(100px,28vw,300px);
+  font-weight:300;
+  line-height:.55;
+  letter-spacing:-.07em;
+}
+
+.prada-copy{
+  margin-top:100px;
+  max-width:600px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:29px;
+  line-height:1;
+}
+
+.external-links{
+  margin-top:70px;
+  border-top:1px solid var(--line);
+}
+
+.external-link{
+  display:flex;
+  justify-content:space-between;
+  padding:25px 0;
+  border-bottom:1px solid var(--line);
+  font-family:"Cormorant Garamond",serif;
+  font-size:30px;
+}
+
+.external-link span:last-child{
+  font-family:"DM Sans",sans-serif;
+  font-size:9px;
+  letter-spacing:.18em;
+}
+
+/* =========================
+   JOURNAL
+========================= */
+
+.journal{
+  min-height:100vh;
+  padding:130px 24px 80px;
+}
+
+.journal-title{
+  margin-top:60px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(90px,25vw,270px);
+  line-height:.58;
+  letter-spacing:-.07em;
+  font-weight:300;
+}
+
+.article{
+  margin-top:100px;
+  padding-top:25px;
+  border-top:1px solid var(--line);
+}
+
+.article-index{
+  font-size:9px;
+  letter-spacing:.2em;
+  color:var(--soft);
+}
+
+.article h2{
+  margin-top:18px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:45px;
+  font-weight:400;
+  line-height:.9;
+}
+
+.article p{
+  margin-top:20px;
+  max-width:500px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:23px;
+  line-height:1;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  border-top:1px solid var(--line);
+  padding:25px 24px;
+  display:flex;
+  justify-content:space-between;
+  font-size:8px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--soft);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .header{
+    height:75px;
+    padding:0 18px;
+  }
+
+  .brand{
+    font-size:24px;
+  }
+
+  .menu-button{
+    padding:12px 16px;
+  }
+
+  .hero{
+    padding:100px 18px 25px;
+  }
+
+  .hero-title{
+    font-size:24vw;
+  }
+
+  .hero-title .brown{
+    margin-left:7%;
+  }
+
+  .hero-subtitle{
+    font-size:22px;
+    max-width:210px;
+  }
+
+  .enter{
+    padding:12px 15px;
+  }
+
+  .collab,
+  .profile,
+  .business,
+  .prada,
+  .journal{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .collab-title{
+    font-size:24vw;
+  }
+
+  .collab-text,
+  .business-intro,
+  .prada-copy{
+    font-size:25px;
+  }
+
+  .profile-name{
+    font-size:24vw;
+  }
+
+  .profile-description{
+    font-size:26px;
+  }
+
+  .business-title{
+    font-size:25vw;
+  }
+
+  .prada-title{
+    font-size:31vw;
+  }
+
+  .journal-title{
+    font-size:28vw;
+  }
+
+  .business-card{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .business-card h3{
+    font-size:32px;
+  }
+
+  .profile-meta{
+    grid-template-columns:1fr;
+  }
+
+  .footer{
+    flex-direction:column;
+    gap:12px;
+  }
+
+}
+
+/* =========================
+   REDUCE MOTION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+  <a href="#home" class="brand">
+    JB
+  </a>
+
+  <button class="menu-button" onclick="openMenu()">
+    Menu
+  </button>
+
+</header>
+
+<!-- MENU -->
+
+<div class="menu" id="menu">
+
+  <div class="menu-inner">
+
+    <button class="menu-close" onclick="closeMenu()">
+      Close
+    </button>
+
+    <nav class="menu-nav">
+
+      <a href="#home" onclick="closeMenu()">Home</a>
+
+      <a href="#collaboration" onclick="closeMenu()">
+        Collaboration
+      </a>
+
+      <a href="#jonathan" onclick="closeMenu()">
+        Jonathan
+      </a>
+
+      <a href="#gwyn" onclick="closeMenu()">
+        Gwyn
+      </a>
+
+      <a href="#business" onclick="closeMenu()">
+        Business
+      </a>
+
+      <a href="#prada" onclick="closeMenu()">
+        Prada
+      </a>
+
+      <a href="#journal" onclick="closeMenu()">
+        Journal
+      </a>
+
+    </nav>
+
+    <div class="menu-footer">
+      Jonathan Brown × Gwyn Hopper
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<main>
+
+<section class="page active" id="home">
+
+  <div class="hero">
+
+    <div class="hero-top">
+
+      <div class="kicker">
+        Literary · Creative · Business
+      </div>
+
+      <div class="issue">
+        Digital Archive / 01
+      </div>
+
+    </div>
+
+    <div class="hero-title">
+
+      <span class="ghost">
+        Jonathan
+      </span>
+
+      <span class="main">
+        Jonathan
+      </span>
+
+      <span class="main brown">
+        Brown
+      </span>
+
+    </div>
+
+    <div class="hero-bottom">
+
+      <div class="hero-subtitle">
+        Literature,
+        culture and
+        contemporary
+        creative work.
+      </div>
+
+      <a class="enter" href="#collaboration">
+        Enter
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     COLLABORATION
+========================= -->
+
+<section class="page" id="collaboration">
+
+  <div class="collab">
+
+    <div class="small-label">
+      01 — Creative Collaboration
+    </div>
+
+    <div class="collab-title">
+
+      <span>
+        Jonathan
+      </span>
+
+      <span class="x">
+        ×
+      </span>
+
+      <span>
+        Gwyn
+      </span>
+
+      <span>
+        Hopper
+      </span>
+
+    </div>
+
+    <div class="collab-text">
+
+      A contemporary collaboration
+      connecting literature, fashion,
+      visual language and cultural
+      thinking.
+
+      <div class="collab-actions">
+
+        <a class="pill" href="#jonathan">
+          Jonathan Brown
+        </a>
+
+        <a class="pill" href="#gwyn">
+          Gwyn Hopper
+        </a>
+
+        <a class="pill" href="#business">
+          Business
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     JONATHAN
+========================= -->
+
+<section class="page" id="jonathan">
+
+  <div class="profile">
+
+    <div class="profile-number">
+      02 — PROFILE
+    </div>
+
+    <h1 class="profile-name">
+      Jonathan<br>
+      Brown
+    </h1>
+
+    <div class="profile-description">
+
+      Jonathan Brown is a writer and
+      author whose work explores
+      consciousness, memory,
+      psychology, technology and
+      human thought.
+
+    </div>
+
+    <div class="profile-meta">
+
+      <div>
+        <div class="meta-label">
+          Discipline
+        </div>
+
+        <div class="meta-value">
+          Writing · Literature
+        </div>
+      </div>
+
+      <div>
+        <div class="meta-label">
+          Archive
+        </div>
+
+        <div class="meta-value">
+          Books · Ideas · Research
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     GWYN
+========================= -->
+
+<section class="page" id="gwyn">
+
+  <div class="profile">
+
+    <div class="profile-number">
+      03 — PROFILE
+    </div>
+
+    <h1 class="profile-name">
+      Gwyn<br>
+      Hopper
+    </h1>
+
+    <div class="profile-description">
+
+      Gwyn Hopper is presented here as
+      a British-American model and
+      fashion designer whose creative
+      perspective connects fashion,
+      identity and contemporary
+      visual culture.
+
+    </div>
+
+    <div class="profile-meta">
+
+      <div>
+        <div class="meta-label">
+          Field
+        </div>
+
+        <div class="meta-value">
+          Fashion · Design · Modeling
+        </div>
+      </div>
+
+      <div>
+        <div class="meta-label">
+          Creative Direction
+        </div>
+
+        <div class="meta-value">
+          Style · Culture · Image
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     BUSINESS
+========================= -->
+
+<section class="page" id="business">
+
+  <div class="business">
+
+    <div class="small-label">
+      04 — Business & Creative Direction
+    </div>
+
+    <h1 class="business-title">
+      The<br>
+      Business.
+    </h1>
+
+    <div class="business-intro">
+
+      A creative platform connecting
+      literary work, fashion,
+      cultural projects and
+      contemporary digital presence.
+
+    </div>
+
+    <div class="business-grid">
+
+      <div class="business-card">
+
+        <h3>
+          Publishing
+        </h3>
+
+        <p>
+          Books, literary projects,
+          editorial development and
+          intellectual properties.
+        </p>
+
+      </div>
+
+      <div class="business-card">
+
+        <h3>
+          Fashion
+        </h3>
+
+        <p>
+          Creative direction,
+          fashion concepts and
+          visual identity.
+        </p>
+
+      </div>
+
+      <div class="business-card">
+
+        <h3>
+          Culture
+        </h3>
+
+        <p>
+          Cross-disciplinary projects
+          connecting literature,
+          design and contemporary
+          culture.
+        </p>
+
+      </div>
+
+      <div class="business-card">
+
+        <h3>
+          Digital
+        </h3>
+
+        <p>
+          Digital archives,
+          editorial experiences
+          and international presence.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PRADA
+========================= -->
+
+<section class="page" id="prada">
+
+  <div class="prada">
+
+    <div class="small-label">
+      05 — Brand Reference
+    </div>
+
+    <h1 class="prada-title">
+      PRADA
+    </h1>
+
+    <div class="prada-copy">
+
+      A reference point for
+      contemporary luxury,
+      conceptual fashion and
+      cultural experimentation.
+
+      <br><br>
+
+      This page connects to Prada's
+      official digital properties
+      without representing this
+      website as an official Prada
+      website.
+
+    </div>
+
+    <div class="external-links">
+
+      <a
+        class="external-link"
+        href="https://www.prada.com/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span>Prada Official</span>
+        <span>↗</span>
+      </a>
+
+      <a
+        class="external-link"
+        href="https://www.pradagroup.com/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span>Prada Group</span>
+        <span>↗</span>
+      </a>
+
+      <a
+        class="external-link"
+        href="https://www.prada-beauty.com/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span>Prada Beauty</span>
+        <span>↗</span>
+      </a>
+
+      <a
+        class="external-link"
+        href="https://www.instagram.com/prada/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span>Prada Instagram</span>
+        <span>↗</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     JOURNAL
+========================= -->
+
+<section class="page" id="journal">
+
+  <div class="journal">
+
+    <div class="small-label">
+      06 — Journal
+    </div>
+
+    <h1 class="journal-title">
+      Notes.
+    </h1>
+
+    <article class="article">
+
+      <div class="article-index">
+        01 / LITERATURE
+      </div>
+
+      <h2>
+        The Architecture
+        of Thought
+      </h2>
+
+      <p>
+        Notes on consciousness,
+        memory and the strange
+        structures that shape
+        human thought.
+      </p>
+
+    </article>
+
+    <article class="article">
+
+      <div class="article-index">
+        02 / FASHION × CULTURE
+      </div>
+
+      <h2>
+        When Fashion
+        Becomes Language
+      </h2>
+
+      <p>
+        An exploration of how
+        design communicates identity,
+        culture and contemporary
+        ideas.
+      </p>
+
+    </article>
+
+    <article class="article">
+
+      <div class="article-index">
+        03 / COLLABORATION
+      </div>
+
+      <h2>
+        Jonathan Brown
+        × Gwyn Hopper
+      </h2>
+
+      <p>
+        A creative dialogue between
+        literature, fashion and
+        visual culture.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+  <span>
+    Jonathan Brown
+  </span>
+
+  <span>
+    © 2026 — Creative Archive
+  </span>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   MENU
+========================= */
+
+function openMenu(){
+  document.getElementById("menu")
+    .classList.add("open");
+
+  document.body.style.overflow="hidden";
+}
+
+function closeMenu(){
+  document.getElementById("menu")
+    .classList.remove("open");
+
+  document.body.style.overflow="";
+}
+
+
+/* =========================
+   PAGE ROUTING
+========================= */
+
+function showPage(){
+
+  let route =
+    location.hash.substring(1);
+
+  if(!route){
+    route="home";
+  }
+
+  document
+    .querySelectorAll(".page")
+    .forEach(page=>{
+      page.classList.remove("active");
+    });
+
+  const target =
+    document.getElementById(route);
+
+  if(target){
+    target.classList.add("active");
+  }else{
+    document
+      .getElementById("home")
+      .classList.add("active");
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"instant"
+  });
+
+}
+
+window.addEventListener(
+  "hashchange",
+  showPage
+);
+
+showPage();
+
+
+/* =========================
+   PREVENT HORIZONTAL
+   TOUCH GESTURES
+========================= */
+
+document.addEventListener(
+  "touchmove",
+  function(e){
+
+    if(
+      Math.abs(
+        e.touches[0].clientX -
+        (window.innerWidth/2)
+      ) >
+      Math.abs(
+        e.touches[0].clientY -
+        (window.innerHeight/2)
+      )
+    ){
+
+      e.preventDefault();
+
+    }
+
+  },
+  {passive:false}
+);
+
+</script>
+
+</body>
+</html>
